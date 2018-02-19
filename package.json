@@ -1,0 +1,29 @@
+{
+  "name": "expedia",
+  "version": "1.0.0",
+  "description": "Expedia Coding Exercise",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aymanblank/expedia.git"
+  },
+  "keywords": [
+    "Expedia"
+  ],
+  "author": "Ayman Abu Khalifa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aymanblank/expedia/issues"
+  },
+  "homepage": "https://github.com/aymanblank/expedia#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.15.0"
+  }
+}
