@@ -2,7 +2,7 @@ import {GET_HOTELS} from './constants';
 import axios from 'axios';
 
 // the node js server api url for getting hotels
-const API = 'http://localhost:5050/api/hotels';
+const API = 'https://mysterious-shore-55347.herokuapp.com:5050/api/hotels';
 
 /*
 *   Action for calling hotels api and dispatch an action of type GET_HOTELS containing the hotels received 
