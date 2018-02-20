@@ -1,14 +1,24 @@
 import {GET_HOTELS} from './constants';
 import axios from 'axios';
 
-export const getHotels = () => dispatch => {
-    return axios.post('/api/hotels', {
-        
+// the node js server api url for getting hotels
+const API = 'http://localhost:5050/api/hotels';
+
+/*
+*   Action for calling hotels api and dispatch an action of type GET_HOTELS containing the hotels received 
+*   from the server response
+*   params : the params that would be sent to the api
+*/
+export const getHotels = (params) => dispatch => {
+    return axios.post(API, params)
+    .then( response => {
+        if(response.data.offers.Hotel){
+            dispatch({type: GET_HOTELS, payload: response.data.offers.Hotel})
+        }else{
+            dispatch({type: GET_HOTELS, payload: []})
+        }
     })
-    .then(function (hotels) {
-        dispatch({type: GET_HOTELS, payload: hotels})
-    })
-    .catch(function (error) {
+    .catch( error => {
         console.warn('error',error);
     });
 }
