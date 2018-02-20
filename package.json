@@ -4,7 +4,13 @@
   "description": "Expedia Coding Exercise",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "cd client && npm install",
+    "server": "node server.js",
+    "dev-server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "init": "concurrently \"npm install\" \"npm run client-install\"",
+    "dev": "concurrently \"npm run dev-server\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,8 @@
   },
   "homepage": "https://github.com/aymanblank/expedia#readme",
   "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "express": "^4.16.2"
   },
