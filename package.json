@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/aymanblank/expedia/issues"
   },
-  "homepage": "https://mysterious-shore-55347.herokuapp.com",
+  "homepage": "https://polar-dawn-15847.herokuapp.com/",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
