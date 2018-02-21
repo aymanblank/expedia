@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // expedia api url 
 const API = 'https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel';
@@ -9,7 +10,13 @@ const API = 'https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-find
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, 'build')));
+
+// creating a post route to retrieve filtered hotels 
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 // creating a post route to retrieve filtered hotels 
 app.post('/api/hotels', (req, res) => {
@@ -29,7 +36,7 @@ app.post('/api/hotels', (req, res) => {
 });
 
 // setting a port for the server to listen to
-const port = 5050;
+const port = 5000;
 
 // initializing server listener on the port defined 
 app.listen(port, () => `Server running on port ${port}`);
