@@ -2,7 +2,7 @@ import { GET_HOTELS } from './constants';
 import axios from 'axios';
 
 // the node js server api url for getting hotels
-const API = process.env.NODE_ENV === 'production' ? 'https://polar-dawn-15847.herokuapp.com/:5000/api/hotels' : 'http://localhost:5000/api/hotels';
+const API = process.env.NODE_ENV === 'production' ? `https://polar-dawn-15847.herokuapp.com/:${process.env.PORT}/api/hotels` : `http://localhost:${process.env.PORT}/api/hotels`;
 
 /*
 *   Action for calling hotels api and dispatch an action of type GET_HOTELS containing the hotels received 

@@ -36,7 +36,7 @@ app.post('/api/hotels', (req, res) => {
 });
 
 // setting a port for the server to listen to
-const port = 5000;
+const port = process.env.PORT;
 
 // initializing server listener on the port defined 
 app.listen(port, () => `Server running on port ${port}`);
