@@ -57,7 +57,7 @@ class Hotels extends Component {
     // Binding event listeners to this scope
     this._handleTextChanged = this._handleTextChanged.bind(this);
     this._handleNumberChanged = this._handleNumberChanged.bind(this);
-    this._handleFilterBtnClick = this._handleFilterBtnClick.bind(this);
+    this.handleFilterBtnClick = this.handleFilterBtnClick.bind(this);
     this._checkStateAndGetRequest = this._checkStateAndGetRequest.bind(this);
   }
 
@@ -72,7 +72,7 @@ class Hotels extends Component {
   */
   _handleTextChanged(change, error = '') {
     for (var name in change) {
-      if (change[name].trim().length > 0) {
+      if (change[name] && change[name].trim().length > 0) {
         this.setState({ [name]: change[name] });
       } else {
         this.setState({ [name]: '', [name + 'Error']: error });
@@ -152,7 +152,7 @@ class Hotels extends Component {
   *   them to the state from the store to update the UI 
   *   event : Click event targeting the button
   */
-  _handleFilterBtnClick(event) {
+  handleFilterBtnClick(event) {
     this.props.loadHotels(true);
     this.props.getHotels(this._checkStateAndGetRequest())
       .then(() => {
@@ -182,7 +182,7 @@ class Hotels extends Component {
           />
           <RaisedButton
             label="Filter"
-            onClick={this._handleFilterBtnClick}
+            onClick={this.handleFilterBtnClick}
             primary
             style={{ marginBottom: 16 }} 
           />
@@ -257,7 +257,7 @@ class Hotels extends Component {
                 <GridTile
                   key={hotel.hotelInfo.hotelId}
                   subtitle={<span>In <b>{hotel.hotelInfo.hotelCity}</b></span>}
-                  title={hotel.hotelInfo.hotelName || ''}
+                  title={hotel.hotelInfo.hotelName}
                 >
                   <img 
                     alt={hotel.hotelInfo.hotelName} 

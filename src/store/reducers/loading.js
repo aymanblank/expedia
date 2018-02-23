@@ -9,9 +9,9 @@ const loadingReducer = (state = false, { type, payload }) => {
   switch (type) {
     case LOADING:
       return payload;
-    default:
-      return state;
-  }
+    default: break;
+  };
+  return state;
 };
 
 export default loadingReducer;

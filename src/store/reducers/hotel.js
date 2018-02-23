@@ -9,9 +9,9 @@ const hotelReducer = (state = [], { type, payload }) => {
   switch (type) {
     case GET_HOTELS:
       return payload;
-    default:
-      return state;
+    default: break;
   };
+  return state;
 };
 
 export default hotelReducer;

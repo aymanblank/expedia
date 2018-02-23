@@ -78,7 +78,9 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**",
-      "!src/index.js"
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/logo.svg"
     ],
     "coverageThreshold": {
       "global": {
